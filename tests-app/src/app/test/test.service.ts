@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 import { Test } from 'src/app/test/test.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +17,10 @@ export class TestService {
 
   getAll(): Observable<Test[]> {
     return this.httpClient.get<Test[]>(this.testsURL);
+  }
+
+  getTest(id: string): Observable<Test> {
+    return this.getAll()
+      .pipe(map(tests => tests.find(test => test.id === id)));
   }
 }

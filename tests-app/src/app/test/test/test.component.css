@@ -1,0 +1,62 @@
+.test-title {
+  font: 400 3rem Helvetica, Verdana, sans-serif;
+  margin-bottom: 4rem;
+  padding: 0;
+}
+
+.test {
+  display: flex;
+  text-align: center;
+  margin: 2rem;
+}
+
+.test-form {
+  border-radius: 0.5rem;
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  max-width: 32rem;
+  margin: auto;
+  max-height: 90%;
+  width: 90%;
+}
+
+.test-input {
+  border: none;
+  border-bottom: 1px solid #4154E0;
+  font-size: 1.5rem;
+  height: 3rem;
+  margin: 2rem 0;
+  width: 100%;
+  text-align: center;
+}
+
+.test-question, .test-score {
+  font-size: 1.5rem;
+}
+
+.test-question span {
+  font-weight: bolder;
+}
+
+.test-input:focus {
+  border-color: #557de0;
+  box-shadow: 0 1px 0 0 #557de0;
+}
+
+.test-score {
+  font-size: 2rem;
+}
+
+.test-link {
+  font-size: 1rem;
+  color: #4154E0;
+  text-decoration: none;
+  margin-top: 1.75rem;
+}
+
+.test-link:hover,
+.test-link:focus {
+  text-decoration: underline;
+}

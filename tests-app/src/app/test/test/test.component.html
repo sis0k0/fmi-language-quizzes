@@ -1,0 +1,23 @@
+<div class="test">
+    <div class="test-form">
+        <ng-container *ngIf="!finished; else elseTemplate">
+            <div id="question-container">
+            </div>
+            <p class="test-question">Question: <span>{{ currentQuestion.question }}</span></p>
+            <input type="text" (keyup)="onAnswerInput($event)" name="answer" class="test-input" autofocus />
+
+            <p>{{ secondsLeft }} seconds left...</p>
+        </ng-container>
+
+        <ng-template #elseTemplate>
+            <p class="test-score">
+                You scored <strong>{{ totalPoints }}</strong> points!
+            </p>
+            <form>
+                <label>Name: </label>
+                <input required #name type="text" />
+                <button (click)="saveScore(name)" [disabled]="!name">Save score</button>
+            </form>
+        </ng-template>
+    </div>
+</div>
