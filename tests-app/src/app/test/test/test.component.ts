@@ -36,7 +36,7 @@ export class TestComponent implements OnInit {
 
     if (this.isCorrectAnswer(answer)) {
       event.target.value = '';
-      const points = this.calculatePoints(this.questionStartTime, this.test.secondsForAnswer)
+      const points = this.calculatePoints(this.questionStartTime, this.test.secondsForAnswer);
       this.totalPoints += points;
 
       this.showNextQuestion();
@@ -44,7 +44,7 @@ export class TestComponent implements OnInit {
   }
 
   saveScore(name: string) {
-    const testId = this.test.id;
+    const testId = this.test._id;
     const score = new Score(testId, name, this.totalPoints);
 
     this.scoreService.saveScore(score);

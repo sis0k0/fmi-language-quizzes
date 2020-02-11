@@ -3,7 +3,7 @@
         <h1 class="tests-title">Choose a Test!</h1>
         <ul id="tests-list">
             <li *ngFor="let test of tests | async">
-                <a [routerLink]="[test.id]">{{ test.name }}</a>
+                <a [routerLink]="[test._id]">{{ test.name }}</a>
             </li>
         </ul>
     </div>
