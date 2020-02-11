@@ -1,35 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Score } from 'src/app/test/score.model';
-import { of, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+
+import { HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+  })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScoreService {
+  private scoresURL = 'http://localhost:5000/scores';
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   saveScore(score: Score) {
-    const scores = this.loadAll();
-    const testScores = scores[score.testId] || [];
-    testScores.push(score);
-
-    scores[score.testId] = [...testScores];
-    localStorage.setItem('scores', JSON.stringify(scores));
+    return this.httpClient.post<Score>(this.scoresURL, score, httpOptions);
   }
 
   loadTestScores(testId: string): Observable<Score[]> {
-    const scores = JSON.parse(localStorage.getItem('scores')) || {};
-    const testScores: Score[] = scores[testId] || [];
-    const sortedScores = this.sortScores(testScores);
+    const endpoint = `${this.scoresURL}/test/${testId}`;
 
-    return of(sortedScores);
-  }
-
-  loadAll(): any {
-    const scores = JSON.parse(localStorage.getItem('scores')) || {};
-
-    return scores;
+    return this.httpClient.get<Score[]>(endpoint)
+      .pipe(map(scores => this.sortScores(scores)));
   }
 
   private sortScores(scores: Score[]) {

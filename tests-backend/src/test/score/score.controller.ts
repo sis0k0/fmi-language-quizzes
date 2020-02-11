@@ -15,7 +15,7 @@ export class ScoreController {
         return res.status(HttpStatus.OK).json(tests);
     }
 
-    @Get('/:testId')
+    @Get('/test/:testId')
     async getScoresByTestId(@Res() res, @Param('testId', new ValidateObjectId()) testId) {
         const scores = await this.scoreService.findScores(testId);
 

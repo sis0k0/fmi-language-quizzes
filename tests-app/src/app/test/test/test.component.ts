@@ -47,14 +47,17 @@ export class TestComponent implements OnInit {
     const testId = this.test._id;
     const score = new Score(testId, name, this.totalPoints);
 
-    this.scoreService.saveScore(score);
+    this.scoreService.saveScore(score)
+      .subscribe(response => {
+        const saved = (response as any).score;
 
-    this.router.navigate(['test', 'scoreboard', testId], {
-      queryParams: {
-        name,
-        points: score.points
-      }
-    });
+        this.router.navigate(['test', 'scoreboard', saved.testId], {
+          queryParams: {
+            saved: saved.name,
+            points: saved.points
+          }
+        });
+      });
   }
 
   private loadTest() {

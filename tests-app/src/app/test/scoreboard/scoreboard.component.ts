@@ -17,6 +17,5 @@ export class ScoreboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.scores = this.route.snapshot.data.scores;
-    console.log(this.scores)
   }
 }

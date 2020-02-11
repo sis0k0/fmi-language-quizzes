@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { Test } from 'src/app/test/test.model';
 
@@ -9,7 +8,6 @@ import { Test } from 'src/app/test/test.model';
   providedIn: 'root'
 })
 export class TestService {
-  // tslint:disable-next-line:max-line-length
   private testsURL = 'http://localhost:5000/tests';
 
   constructor(private httpClient: HttpClient) { }
