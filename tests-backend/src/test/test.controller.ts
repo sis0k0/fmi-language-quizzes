@@ -3,7 +3,7 @@ import { TestService } from './test.service';
 import { ValidateObjectId } from './shared/pipes/validate-object-id.pipes';
 import { CreateTestDTO } from 'src/test/dto/create-test.dto';
 
-@Controller('test')
+@Controller('tests')
 export class TestController {
 
     constructor(private testService: TestService) { }
@@ -18,7 +18,7 @@ export class TestController {
         });
     }
 
-    @Get('test/:testID')
+    @Get('/:testID')
     async getTest(@Res() res, @Param('testID', new ValidateObjectId()) testID) {
         const test = await this.testService.getTest(testID);
         if (!test) {
@@ -28,14 +28,14 @@ export class TestController {
         return res.status(HttpStatus.OK).json(test);
     }
 
-    @Get('tests')
+    @Get('')
     async getTests(@Res() res) {
         const tests = await this.testService.getTests();
 
         return res.status(HttpStatus.OK).json(tests);
     }
 
-    @Get('names')
+    @Get('/select/name')
     async getTestNames(@Res() res) {
         const testNames = await this.testService.getTestNames();
 

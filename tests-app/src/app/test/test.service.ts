@@ -10,18 +10,18 @@ import { Test } from 'src/app/test/test.model';
 })
 export class TestService {
   // tslint:disable-next-line:max-line-length
-  private testsURL = 'http://localhost:5000/test';
+  private testsURL = 'http://localhost:5000/tests';
 
   constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<Test[]> {
-    const endpoint = `${this.testsURL}/names`;
+    const endpoint = `${this.testsURL}/select/name`;
 
     return this.httpClient.get<Test[]>(endpoint);
   }
 
   getTest(id: string): Observable<Test> {
-    const endpoint = `${this.testsURL}/test/${id}`;
+    const endpoint = `${this.testsURL}/${id}`;
 
     return this.httpClient.get<Test>(endpoint);
   }
