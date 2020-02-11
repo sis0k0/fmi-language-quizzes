@@ -1,0 +1,52 @@
+.scoreboard {
+  display: flex;
+  margin: 2rem;
+}
+
+.scoreboard-container {
+  text-align: center;
+  border-radius: 0.5rem;
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  max-width: 32rem;
+  margin: auto;
+  max-height: 90%;
+  width: 90%;
+}
+
+.scoreboard-container ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.scoreboard-container li {
+  font: 200 1rem Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
+  text-decoration: none;
+  color: #000;
+  padding: 1rem 0;
+  display: block;
+}
+
+.scoreboard-container li:last-child {
+  border: none;
+}
+
+.scoreboard-container .current-score {
+  background-color: aquamarine;
+}
+
+.scoreboard-link {
+    font-size: 1rem;
+    color: #4154E0;
+    text-decoration: none;
+    margin-top: 1.75rem;
+}
+
+.scoreboard-link:hover,
+.scoreboard-link:focus {
+    text-decoration: underline;
+}

@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { TestComponent } from 'src/app/test/test/test.component';
 import { TestsListComponent } from 'src/app/test/tests-list/tests-list.component';
 import { TestResolver } from 'src/app/test/test-resolver.service';
+import { ScoreboardComponent } from './scoreboard/scoreboard.component';
+import { ScoreResolver } from 'src/app/test/score-resolver.service';
 
 const routes = [
   { path: '', component: TestsListComponent },
@@ -16,12 +18,20 @@ const routes = [
       test: TestResolver
     }
   },
+  {
+    path: 'scoreboard/:id',
+    component: ScoreboardComponent,
+    resolve: {
+      scores: ScoreResolver
+    }
+  },
 ];
 
 @NgModule({
   declarations: [
     TestComponent,
-    TestsListComponent
+    TestsListComponent,
+    ScoreboardComponent
   ],
   imports: [
     CommonModule,

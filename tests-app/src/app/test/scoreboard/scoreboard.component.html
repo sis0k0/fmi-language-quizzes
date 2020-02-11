@@ -1,0 +1,14 @@
+<div class="scoreboard">
+    <div class="scoreboard-container">
+        <h1>Scoreboard</h1>
+
+        <ul>
+            <li *ngFor="let score of scores; let i=index">
+                {{ i+1 }}. {{ score.name }} - {{ score.points }} points
+            </li>
+        </ul>
+        
+
+        <a class="scoreboard-link" [routerLink]="['/test']" routerLinkActive="router-link-active" >All Tests</a>
+    </div>
+</div>

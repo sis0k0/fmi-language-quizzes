@@ -49,7 +49,7 @@ export class TestComponent implements OnInit {
 
     this.scoreService.saveScore(score);
 
-    this.router.navigate(['/scoreboard', testId], {
+    this.router.navigate(['test', 'scoreboard', testId], {
       queryParams: {
         name,
         points: score.points
