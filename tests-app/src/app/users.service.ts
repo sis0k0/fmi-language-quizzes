@@ -5,20 +5,16 @@ import { User } from './user';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
-  private usersURL = 'http://localhost:5000/users';
+  private usersURL = 'http://localhost:5000/';
 
   constructor(private http: HttpClient) { }
 
-  getAll() {
-    return this.http.get<User[]>(this.usersURL);
-  }
-
-  getById(id: number) {
-    return this.http.get(`${this.usersURL}/id`);
+  getProfile(id: number) {
+    return this.http.get(`${this.usersURL}/${id}`);
   }
 
   register(user: User) {
-    return this.http.post(`${this.usersURL}/register`, user);
+    return this.http.post(`${this.usersURL}/signup`, user);
   }
 
   update(user: User) {
