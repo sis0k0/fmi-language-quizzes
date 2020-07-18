@@ -1,9 +1,31 @@
-<div class="jumbotron">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 offset-sm-3">
-                <router-outlet></router-outlet>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Speed Language Quizzes</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul *ngIf="loggedIn" class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/profile']">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" ngClick="logOut()">Log out</a>
+            </li>
+        </ul>
+
+        <ul *ngIf="!loggedIn" class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/login']">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/signup']">Sign up</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>

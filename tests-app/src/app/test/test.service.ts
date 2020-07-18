@@ -23,4 +23,10 @@ export class TestService {
 
     return this.httpClient.get<Test>(endpoint);
   }
+
+  add(test: Test): Observable<Test> {
+    const endpoint = this.testsURL;
+
+    return this.httpClient.post<Test>(endpoint, test);
+  }
 }

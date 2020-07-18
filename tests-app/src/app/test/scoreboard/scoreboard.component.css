@@ -6,7 +6,6 @@
 .scoreboard-container {
   text-align: center;
   border-radius: 0.5rem;
-  background-color: #FFF;
   display: flex;
   flex-direction: column;
   padding: 2.5rem;
@@ -26,7 +25,6 @@
   font: 200 1rem Helvetica, Verdana, sans-serif;
   border-bottom: 1px solid #ccc;
   text-decoration: none;
-  color: #000;
   padding: 1rem 0;
   display: block;
 }
@@ -41,7 +39,6 @@
 
 .scoreboard-link {
     font-size: 1rem;
-    color: #4154E0;
     text-decoration: none;
     margin-top: 1.75rem;
 }
